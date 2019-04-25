@@ -1,5 +1,4 @@
 # project_AI_class
-five_in_a_row_game_assignment
 In order to design a UI interface for our Gobang game, we have learnt how to use pygame. According to the source, at first, we should need use some codes to initial the framework of game.
 import pyagme
 from pygame.locals import *
