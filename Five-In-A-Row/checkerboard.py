@@ -1,4 +1,4 @@
-from collections import namedtuple
+﻿from collections import namedtuple
 
 Chess = namedtuple('Chess', 'Name Value Color')
 Position = namedtuple('Position', 'X Y')
@@ -19,25 +19,20 @@ class Check_all:
 
     checkerboard = property(_get_board)
 
-    # 判断是否可落子
+    # be able to drop or not
     def able_to_drop(self, position):
         return self._board[position.Y][position.X] == 0
 
     def step(self, chess, position):
-        """
-        落子
-        :param chessman:
-        :param point:落子位置
-        :return:若该子落下之后即可获胜，则返回获胜方，否则返回 None
-        """
+        
         print(f'{chess.Name} ({position.X}, {position.Y})')
         self._board[position.Y][position.X] = chess.Value
 
         if self._win(position):
-            print(f'{chess.Name}获胜')
+            print(f'{chess.Name} win')
             return chess
 
-    # 判断是否赢了
+    # determine win or not
     def _win(self, position):
         current_value = self._board[position.Y][position.X]
         for v in vector:
