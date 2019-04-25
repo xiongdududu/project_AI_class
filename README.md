@@ -1,8 +1,22 @@
 # project_AI_class
 five_in_a_row_game_assignment
+In order to design a UI interface for our Gobang game, we have learnt how to use pygame. According to the source, at first, we should need use some codes to initial the framework of game.
+import pyagme
+from pygame.locals import *
+from sys import exit
+First, the source author initials the widow and gives necessary parameters like resolution ratio and color and show the game name on the title. 
+pygame.init()
+screen = pygame.display.set_mode((1024,768),0, 32 )
+pygame.display.set_caption (Gomoku)
+imagePath = 'xxx'
+imBackground = pygame.image.load(imagePath+'background.jpg').convert()
+imChessboard = pygame.image.load(imagePath+'chessboard.jpg').convert()
+imBlackPiece = pygame.image.load(imagePath+'blackpiece.png').convert_alpha()
+imWhitePiece = pygame.image.load(imagePath+'whitepiece.png').convert_alpha()
+screen.blit(imBackground, (0,0))  ##draw the chessboard 
 chessboard_start_x =(1024-(1024-540)/2-1
-    chessboard_start_y = 768-(768-540)/2-1
-    screen.blit(imChessboard,(241,113))    ##put the chessboard in the center
+chessboard_start_y = 768-(768-540)/2-1
+screen.blit(imChessboard,(241,113))    ##put the chessboard in the center
 Second, the function convert () can change the picture into the Surface type, convert_aplha can do the same thing but this function keeps the value of alpha, so that we can realize some part of picture are transparent and get a circle chess. 
 Using bits function to transfer the Surface object. Through these steps, the author has got an interface for chessboard. 
  
@@ -18,7 +32,7 @@ mouse_chessboard_x,mouse_chessboard_y = pressed_x-chessboard_start_x,pressed_y-c
 
 And calculate the closest point to the mouse click down position. 
 d = (518-22)/14
-        i_tmp,j_tmp = round((mouse_chessboard_y-22)/d)+1,round((mouse_chessboard_x-22)/d)+1
+i_tmp,j_tmp = round((mouse_chessboard_y-22)/d)+1,round((mouse_chessboard_x-22)/d)+1
 
 Work out the chess position in the chessboard
 piece_chessboard_x,piece_chessboard_y = 22+(j-1)*d,22+(i-1)*d  [1]
